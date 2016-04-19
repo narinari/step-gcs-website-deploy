@@ -1,0 +1,5 @@
+name: gcs-website-deploy
+box: wercker/default
+build:
+  steps:
+    - validate-wercker-step
