@@ -15,12 +15,10 @@ fi
 
 debug 'setting gsutil'
 echo "[Credentials]" > .boto
-echo "gs_oauth2_refresh_token =" >> .boto
+echo "gs_oauth2_refresh_token = \"$WERCKER_GCS_WEBSITE_DEPLOY_TOKEN\"" >> .boto
 echo "[GSUtil]" >> .boto
-echo "default_project_id =" >> .boto
+echo "default_project_id = $WERCKER_GCS_WEBSITE_DEPLOY_PROJECT" >> .boto
 
-sed -i "/^\[Credentials\]/,/^gs_oauth2_refresh_token/ s@^\(gs_oauth2_refresh_token =\).*@\1 $WERCKER_GCS_WEBSITE_DEPLOY_TOKEN@" .boto
-sed -i "/^\[GSUtil\]/,/^default_project_id/ s@^\(default_project_id =\).*@\1 $WERCKER_GCS_WEBSITE_DEPLOY_PROJECT@" .boto
 export BOTO_PATH=$PWD/.boto
 
 # if WERCKER_GCS_WEBSITE_DEPLOY_INITIALIZE is not empty
