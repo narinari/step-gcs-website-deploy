@@ -15,7 +15,8 @@ fi
 
 debug 'setting gsutil'
 echo "[Credentials]" > .boto
-echo "gs_oauth2_refresh_token = \"$WERCKER_GCS_WEBSITE_DEPLOY_TOKEN\"" >> .boto
+echo "gs_access_key_id = \"$WERCKER_GCS_WEBSITE_DEPLOY_ACCESS_KEY_ID\"" >> .boto
+echo "gs_secret_access_key = \"$WERCKER_GCS_WEBSITE_DEPLOY_SECRET_ACCESS_KEY\"" >> .boto
 echo "[GSUtil]" >> .boto
 echo "default_project_id = $WERCKER_GCS_WEBSITE_DEPLOY_PROJECT" >> .boto
 

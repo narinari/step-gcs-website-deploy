@@ -6,7 +6,8 @@ It requires a `.boto` config file on the root of the repository,
 and requires `gs_oauth2_refresh_token` and `default_project_id` lines in `.boto` like below:
 
     [Credentials]
-    gs_oauth2_refresh_token =
+    gs_access_key_id =
+    gs_secret_access_key =
     [GSUtil]
     default_project_id =
 
@@ -29,7 +30,7 @@ It applies gzip content-encoding to file uploads with below extensions.
 
 * `bucket` - A bucket name of the Google Cloud Storage.
 * `project` - A project ID of the Google Cloud Platform.
-* `token` - The OAuth 2.0 refresh token of the Google account to use for deployment.
+* `access_key_id`, `secret_access_key` - The [HMAC Authentication and development key](https://cloud.google.com/storage/docs/migrating#keys) 
 
 ### options
 
@@ -51,10 +52,11 @@ It will be set the MainPageSuffix property to `index.html` and the NotFoundPage 
 ```
 deploy:
   steps:
-  - michilu/gcs-website-deploy:
+  - narinari/gcs-website-deploy:
     bucket:   example.com
     project:  $GOOGLE_PROJECT_ID
-    token:    $GOOGLE_REFRESH_TOKEN
+    access_key_id:    $GCS_ACCESS_KEY_ID
+    secret_access_key:    $GCS_SECRET_ACCESS_KEY
 
     # options
     dir:      public
