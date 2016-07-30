@@ -30,7 +30,7 @@ It applies gzip content-encoding to file uploads with below extensions.
 
 * `bucket` - A bucket name of the Google Cloud Storage.
 * `project` - A project ID of the Google Cloud Platform.
-* `access_key_id`, `secret_access_key` - The [HMAC Authentication and development key](https://cloud.google.com/storage/docs/migrating#keys) 
+* `access_key`, `secret` - The [HMAC Authentication and development key](https://cloud.google.com/storage/docs/migrating#keys) 
 
 ### options
 

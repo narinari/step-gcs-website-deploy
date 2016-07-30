@@ -14,9 +14,10 @@ elif [ `gsutil version|awk '{print $3}'|tr -d "\\r\\n"` != \
 fi
 
 debug 'setting gsutil'
+debug $WERCKER_GCS_WEBSITE_DEPLOY_ACCESS_KEY
 echo "[Credentials]" > .boto
-echo "gs_access_key_id = \"$WERCKER_GCS_WEBSITE_DEPLOY_ACCESS_KEY_ID\"" >> .boto
-echo "gs_secret_access_key = \"$WERCKER_GCS_WEBSITE_DEPLOY_SECRET_ACCESS_KEY\"" >> .boto
+echo "gs_access_key_id = \"$WERCKER_GCS_WEBSITE_DEPLOY_ACCESS_KEY\"" >> .boto
+echo "gs_secret_access_key = \"$WERCKER_GCS_WEBSITE_DEPLOY_SECRET\"" >> .boto
 echo "[GSUtil]" >> .boto
 echo "default_project_id = $WERCKER_GCS_WEBSITE_DEPLOY_PROJECT" >> .boto
 
