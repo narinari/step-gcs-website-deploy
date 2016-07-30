@@ -3,7 +3,7 @@
 A step that deploys website to Google Cloud Storage.
 
 It requires a `.boto` config file on the root of the repository,
-and requires `gs_oauth2_refresh_token` and `default_project_id` lines in `.boto` like below:
+and requires `gs_access_key_id`, `gs_secret_access_key` and `default_project_id` lines in `.boto` like below:
 
     [Credentials]
     gs_access_key_id =
